@@ -15,12 +15,19 @@ def fetch_weather_data(city_name):
         "q": city_name + ",PH", # Append PH (Philippines) to limit search within the country
         "units": "metric",       # Display temperature in Celsius (how Filipinos display temp)
         "lang": "en"            # Display the data in English
-
     }
+    
+    # Make a request to OpenWeatherMap using requests module
+        # Store in weather_response the data fetched
+    weather_response = requests.get(weather_url, parameter=weather_parameters) # Use requests.get to request data from the URL with parameters 
 
-    while True:
-        # Ask the user for a city
-        city_name = input("Hi! Please input a city in NCR, Philippines: ")
-        if city_name not in ncr_cities:  # Check if the city is valid
-            print("Please input a city in NCR, Philippines only.")
-            continue 
+    weather_response.raise_for_status()  # Use raise_forstatus to check the HTTP status and if there's any error encountered
+
+    return weather_response.json()  # Use json to analyze and process the text data for easy access
+ 
+while True:
+    # Ask the user for a city
+    city_name = input("Hi! Please input a city in NCR, Philippines: ")
+    if city_name not in ncr_cities:  # Check if the city is valid
+        print("Please input a city in NCR, Philippines only.")
+        continue 
