@@ -1,8 +1,8 @@
 import requests
 
-ncr_cities = [ "Caloocan", "Malabon", "Navotas", "Valenzuela", "Quezon City",
-    "Marikina", "Pasig", "Taguig", "Makati", "Manila",
-    "Mandaluyong", "San Juan", "Pasay", "Parañaque", "Las Piñas", "Muntinlupa"]
+ncr_cities = [ "caloocan", "calabon", "navotas", "valenzuela", "quezon city",
+    "marikina", "pasig", "taguig", "makati", "manila",
+    "mandaluyong", "san juan", "pasay", "parañaque", "las piñas", "muntinlupa"]
 
 def fetch_weather_data(city_name):
     weather_url = "https://api.openweathermap.org/data/2.5/weather?"  # base URL to fetch data from website
@@ -49,7 +49,7 @@ def display_weather(data):
 
 while True:
     # Ask the user for a city
-    city_name = input("Hi! Please input a city in NCR, Philippines: ")
+    city_name = input("Hi! Please input a city in NCR, Philippines: ").lower()
     if city_name not in ncr_cities:  # Check if the city is valid
         print("Please input a city in NCR, Philippines only.")
         continue 
