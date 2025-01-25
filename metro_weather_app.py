@@ -9,6 +9,15 @@ def fetch_weather_data(city_name):
     with open("api_key", "r") as file:
             api_key = file.read().strip()
 
+    # Request Parameters
+    weather_parameters = {
+        "appid": api_key,
+        "q": city_name + ",PH", # Append PH (Philippines) to limit search within the country
+        "units": "metric",       # Display temperature in Celsius (how Filipinos display temp)
+        "lang": "en"            # Display the data in English
+
+    }
+
     while True:
         # Ask the user for a city
         city_name = input("Hi! Please input a city in NCR, Philippines: ")
