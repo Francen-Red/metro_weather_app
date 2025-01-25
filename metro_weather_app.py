@@ -57,3 +57,14 @@ while True:
     # Fetch and display the weather data
     weather_data = fetch_weather_data(city_name)
     display_weather(weather_data)
+
+    # Ask the user if they want to input another city
+    while True:
+        another_city = input("Do you want to input another city? (yes/no): ").strip().lower()
+        if another_city == "yes":
+            break  # Restart the main loop
+        elif another_city == "no":
+            print("Thank you for using the weather app!")
+            exit()  # Exit the program
+        else:
+            print("Invalid input. Please type 'yes' or 'no'.")
